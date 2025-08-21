@@ -21,20 +21,20 @@ jobs:
           distribution: 'temurin'
 
       - name: Build backend jar
-        working-directory: backend
+        working-directory: Backend
         run: ./gradlew clean bootJar
 
       - name: Build and push backend Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./backend
-          file: ./backend/Dockerfile
+          context: ./Backend
+          file: ./Backend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/gestion-pedidos-backend:${{ github.sha }}
 
       # === FRONTEND ===
       - name: Build frontend
-        working-directory: frontend
+        working-directory: Frontend
         run: |
           npm ci
           npm run build
@@ -42,7 +42,7 @@ jobs:
       - name: Build and push frontend Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./frontend
-          file: ./frontend/Dockerfile
+          context: ./Frontend
+          file: ./Frontend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/gestion-pedidos-frontend:${{ github.sha }}
