@@ -56,4 +56,4 @@ jobs:
           context: ./Frontend
           file: ./Frontend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/gestion-pedidos-frontend:${{ github.sha }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/gestion-pedidos-frontend:latest
