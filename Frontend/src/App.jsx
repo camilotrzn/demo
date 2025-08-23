@@ -5,17 +5,18 @@ import './App.css'
 import { useState, useEffect } from "react";
 
 export default function App() {
+  const API_URL = "http://backend:8080/api/pedidos"
   const [pedidos, setPedidos] = useState([]);
   const [nuevoPedido, setNuevoPedido] = useState({ cliente: "", producto: ""});
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/pedidos")
+    fetch(API_URL)
       .then(res => res.json())
       .then(data => setPedidos(data));
   }, []);
 
   const crearPedido = () => {
-    fetch("http://localhost:8080/api/pedidos", {
+    fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(nuevoPedido)
@@ -25,7 +26,7 @@ export default function App() {
   };
 
   const eliminarPedido = (id) => {
-    fetch(`http://localhost:8080/api/pedidos/${id}`, { method: "DELETE" })
+    fetch(`${API_URL}/${id}`, { method: "DELETE" })
       .then(() => setPedidos(pedidos.filter(p => p.id !== id)));
   };
 
