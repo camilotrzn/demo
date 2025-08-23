@@ -41,7 +41,7 @@ jobs:
           context: ./Backend
           file: ./Backend/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/gestion-pedidos-backend:${{ github.sha }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/gestion-pedidos-backend:latest
 
       # === FRONTEND ===
       - name: Build frontend
