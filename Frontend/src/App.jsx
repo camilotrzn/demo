@@ -5,7 +5,7 @@ import './App.css'
 import { useState, useEffect } from "react";
 
 export default function App() {
-  const API_URL = "http://localhost:8080/api/pedidos"
+  const API_URL = "/api/pedidos"
   const [pedidos, setPedidos] = useState([]);
   const [nuevoPedido, setNuevoPedido] = useState({ cliente: "", producto: ""});
 
