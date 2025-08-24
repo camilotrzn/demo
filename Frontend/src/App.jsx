@@ -5,6 +5,7 @@ import './App.css'
 import { useState, useEffect } from "react";
 
 export default function App() {
+  console.log("latest varsion")
   const API_URL = "/api/pedidos"
   const [pedidos, setPedidos] = useState([]);
   const [nuevoPedido, setNuevoPedido] = useState({ cliente: "", producto: ""});
