@@ -15,6 +15,11 @@ public class controllerPedido {
         this.service = service;
     }
 
+    @GetMapping("/test")
+    public String ping(){
+        return "ok";
+    }
+
     @GetMapping
     public List<pedido> listar() {
         return service.listar();
